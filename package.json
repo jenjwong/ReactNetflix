@@ -4,11 +4,14 @@
   "main": "index.js",
   "scripts": {
     "test": "standard",
-    "build": "webpack js/ClientApp.js public/bundle.js"
+    "watch": "webpack --watch",
+    "build": "webpack"
+
   },
   "license": "MIT",
   "dependencies": {
     "axios": "0.9.1",
+    "babel-eslint": "^6.1.2",
     "express": "4.13.4",
     "lodash": "4.6.1",
     "react": "^0.14.7",

@@ -1,0 +1,5 @@
+//in production include individual plugins because polyfills are huge to download to clients
+
+{
+  "presets": ["react", "es2015"]
+}
