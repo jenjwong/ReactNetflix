@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "standard",
+    "lint": "standard",
     "watch": "webpack --watch",
-    "build": "webpack"
-
+    "build": "webpack",
+    "test": "mocha -R nyan --require test/helpers/setup.js"
   },
   "license": "MIT",
   "dependencies": {
@@ -26,6 +26,7 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.5.2",
+    "babel-polyfill": "^6.13.0",
     "chai": "^3.5.0",
     "enzyme": "^2.0.0",
     "eslint": "^2.2.0",
