@@ -6,11 +6,15 @@ const { shallow, mount } = require('enzyme')
 const { shows } = require('../public/data')
 const ShowCard = require('../js/ShowCard')
 
+const debugLog = (isPassing, wrapper) => {
+  return isPassing ? null : console.log(wrapper.debug())
+}
+
 describe('<Search />', () => {
   it('should render brand', () => {
     const wrapper = shallow(<Search />)
     const isPassing = wrapper.contains(<h1 className="brand">urMomBakesPies</h1>)
-    isPassing ? null : console.log(wrapper.debug())
+    debugLog(isPassing, wrapper)
     expect(isPassing).to.be.true
   })
 
