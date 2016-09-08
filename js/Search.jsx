@@ -1,6 +1,7 @@
 const React = require('react')
 const ShowCard = require('./ShowCard')
 const { object } = React.PropTypes
+const Header = require('./Header')
 
 const Search = React.createClass({
   getInitialState () {
@@ -13,8 +14,10 @@ const Search = React.createClass({
     route: object
   },
 
-  handleSearchTermEvent (event) {
-    this.setState({ searchTerm: event.target.value })
+// abstract to searchTerm instead of using event
+
+  handleSearchTermChange (searchTerm) {
+    this.setState({ searchTerm })
   },
 
 // if massive amounts of data use debouncing so it's more preformant
@@ -24,10 +27,12 @@ const Search = React.createClass({
   render () {
     return (
       <div className="container">
-        <header className="header">
-          <h1 className="brand">urMomBakesPies</h1>
-          <input value={this.state.searchTerm} type="text" className="search-input" placeholder='Search' onChange={this.handleSearchTermEvent} />
-        </header>
+        <Header
+          handleSearchTermChange={this.handleSearchTermChange}
+          searchTerm={this.state.searchTerm}
+          showSearch
+        />
+
         <div className="shows">
           {this.props.route.shows
             .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
